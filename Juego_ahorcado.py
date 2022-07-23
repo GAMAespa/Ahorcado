@@ -1,5 +1,24 @@
 import os
 import random
+from colorama import Back, Fore, init
+
+
+ahorcado_image_ascci = """
+
+                       .-'''-.                   _..._                               .-'''-.     
+                      '   _    \              .-'_..._''.           _______         '   _    \   
+            .       /   /` '.   \           .' .'      '.\          \  ___ `'.    /   /` '.   \  
+          .'|      .   |     \  '          / .'                      ' |--.\  \  .   |     \  '  
+         <  |      |   '      |  '.-,.--. . '                        | |    \  ' |   '      |  ' 
+    __    | |      \    \     / / |  .-. || |                 __     | |     |  '\    \     / /  
+ .:--.'.  | | .'''-.`.   ` ..' /  | |  | || |              .:--.'.   | |     |  | `.   ` ..' /   
+/ |   \ | | |/.'''. \  '-...-'`   | |  | |. '             / |   \ |  | |     ' .'    '-...-'`    
+`" __ | | |  /    | |             | |  '-  \ '.          .`" __ | |  | |___.' /'                 
+ .'.''| | | |     | |             | |       '. `._____.-'/ .'.''| | /_______.'/                  
+/ /   | |_| |     | |             | |         `-.______ / / /   | |_\_______|/                   
+\ \._,\ '/| '.    | '.            |_|                  `  \ \._,\ '/                             
+ `--'  `" '---'   '---'                                    `--'  `"                              
+"""
 
 
 def compare(letter,chosen_word, guess ):
@@ -12,6 +31,7 @@ def compare(letter,chosen_word, guess ):
 
 
 def run():
+    init()
     os.system("cls")
     with open("./archivos/data.txt", "r", encoding= "utf-8") as word:
         words_list = [i for i in word]
@@ -22,7 +42,8 @@ def run():
     for i in chosen_word:
             guess.append("-")
     while chosen_word != guess:
-        print("".join(guess))
+        print(Back.RED + Fore.BLACK + ahorcado_image_ascci + Fore.RESET + Back.RESET)
+        print(Fore.RED + "".join(guess))
         chosen_letter = input("Escribe una letra: ")
         compare(chosen_letter, chosen_word, guess)
     if chosen_word == guess:
