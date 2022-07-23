@@ -17,11 +17,11 @@ def run():
     with open("./archivos/data.txt", "r", encoding= "utf-8") as word:
         words_list = [i for i in word]
     run = True
-    lives = 10
     guess = []
     chosen_word = words_list[random.randint(0, len(words_list) - 1)]
     chosen_word = list(chosen_word)
     chosen_word.pop(len(chosen_word) - 1)
+    lives = len(chosen_word) + 5
     for i in chosen_word:
             guess.append("-")
     while chosen_word != guess and lives > 0:
