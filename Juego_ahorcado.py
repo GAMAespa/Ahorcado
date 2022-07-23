@@ -4,7 +4,6 @@ import random
 
 def compare(letter,chosen_word, guess ):
     if letter in chosen_word:
-        
         for i,x in enumerate(chosen_word):
             if x == letter:
                 guess.insert(i, x)
@@ -16,7 +15,6 @@ def run():
     os.system("cls")
     with open("./archivos/data.txt", "r", encoding= "utf-8") as word:
         words_list = [i for i in word]
-    run = True
     guess = []
     chosen_word = words_list[random.randint(0, len(words_list) - 1)]
     chosen_word = list(chosen_word)
